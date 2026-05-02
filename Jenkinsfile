@@ -8,7 +8,14 @@ pipeline {
                 sh './app.sh'
             }
         }
-    }
+        stage ('Error exeception') {
+            steps {
+                try {
+                    sh 'exit 1'
+                } catch (Exception e) {
+                    echo "Error occurred but continuing..."
+                }
+        }
 
     post {
         success {

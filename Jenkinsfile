@@ -10,13 +10,15 @@ pipeline {
         }
         stage ('Error exeception') {
             steps {
-                try {
-                    sh 'exit 1'
-                } catch (Exception e) {
-                    echo "Error occurred but continuing..."
+                script {
+                    try {
+                        sh 'exit 1'
+                    } catch (Exception e) {
+                        echo "Error occurred but continuing..."
                 }
             }
         }
+    }
     }
     post {
         success {

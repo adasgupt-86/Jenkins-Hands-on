@@ -1,13 +1,6 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/adasgupt-86/jenkins-practice.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'echo "Build started..."'

@@ -15,6 +15,7 @@ pipeline {
                 } catch (Exception e) {
                     echo "Error occurred but continuing..."
                 }
+            }
         }
 
     post {

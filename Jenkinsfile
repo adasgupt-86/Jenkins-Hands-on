@@ -18,14 +18,14 @@ pipeline {
                 }
             }
         }
-        stage('Test (fail but continue)') {
+        }            
+        stage ('Test (fail but continue)') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh 'exit 1'
                 }
             }
         }
-    }
     }
     post {
         success {

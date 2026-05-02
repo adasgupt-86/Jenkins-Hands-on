@@ -17,7 +17,7 @@ pipeline {
                 }
             }
         }
-
+    }
     post {
         success {
             echo 'Build SUCCESS'
@@ -27,4 +27,3 @@ pipeline {
             }
         }
     }
-}

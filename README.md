@@ -10,7 +10,7 @@
 
 This project demonstrates a **production-style CI/CD pipeline using Jenkins (Scripted Pipeline)** integrated with **GitHub Webhooks, SonarQube, Docker, and Email Notifications**.
 
-The pipeline automates the complete workflow from **code commit → quality analysis → approval → container build → deployment artifact push**.
+The pipeline automates the complete workflow from **code commit → auto trigger--->quality analysis → approval → container-image build → deployment artifact push**.
 
 ---
 
@@ -125,7 +125,7 @@ Email Notification
 
   * Success
   * Failure
-* Used AI-assisted formatting for professional email body
+  * Used AI-assisted email formatting for professional email body using Jenkins Logo.
 
 ---
 
@@ -216,8 +216,6 @@ This project successfully demonstrates a **robust CI/CD pipeline** with:
 * Controlled approvals
 * Containerized artifact delivery
 
-It reflects **production-ready DevOps practices** and can be extended for full deployment automation.
-
 ---
 
 
@@ -225,6 +223,7 @@ It reflects **production-ready DevOps practices** and can be extended for full d
 -----------------------------------------------------------------------
 **Groovy codes syntax in Jenkins are as following-->**
 -----------------------------------------------------------------------
+
 
 pipeline {
     agent any
@@ -235,7 +234,6 @@ pipeline {
         DOCKER_LOGIN = credentials ('dockerhub-cred')
         SONARQUBE_LOGIN = credentials ('sonar')
     }
-
     stages {
         
         stage ('Git-checkout') {
@@ -245,7 +243,6 @@ pipeline {
                     credentialsId: 'git-cred'
             }
         }
-        
         stage ('SonarQube Scan') {
             steps {
                 script {
@@ -263,15 +260,13 @@ pipeline {
                 }
             }
         }
-        
         stage ('Quality Gate') {
             steps {
                 timeout (time:5, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: false
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }
-        
         stage ('Mannual Approve for Build') {
             steps {
                 input message: 'Do you want to proceed?', 
@@ -279,15 +274,13 @@ pipeline {
                 submitter: 'admin,devops-team'
             }
         }
-        
         stage ('Build') {
             steps {
                 sh '''
                 docker build -t demo:$TAG1 .
                 '''
             }
-        }
-        
+        }   
         stage ('Image push to DockerHub') {
             steps {
                 sh '''

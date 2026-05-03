@@ -361,9 +361,6 @@ pipeline {
         }
     }
 
-<img width="3358" height="1892" alt="image" src="https://github.com/user-attachments/assets/d684533b-be29-4d91-821a-143cd2e9b0d7" />
-
-
 
 
 

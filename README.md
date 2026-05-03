@@ -360,3 +360,12 @@ pipeline {
             }
         }
     }
+
+**Jenkins Pipeline Output**
+
+<img width="1679" height="946" alt="image" src="https://github.com/user-attachments/assets/d6ad1e4e-f264-40ca-8525-d01a42037ff5" />
+
+
+
+
+

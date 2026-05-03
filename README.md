@@ -1,6 +1,7 @@
 **Project-1:**
 1. Scripted Pipeline from Jenkinsfile using "Pipeline script from SCM" feature in Jenkins
-2. Only for connectivity testing purpose
+2. Tested with Cron job (Build periodically)
+3. Only for connectivity & cron job testing purposes.
 
 
 **Project-2:**  || **# 🚀 Jenkins CI/CD Pipeline (Scripted) – End-to-End Implementation**

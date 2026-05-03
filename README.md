@@ -223,12 +223,10 @@ This project successfully demonstrates a **robust CI/CD pipeline** with:
 -----------------------------------------------------------------------
 **Groovy codes syntax in Jenkins are as following-->**
 -----------------------------------------------------------------------
-
+```groovy
 
 pipeline {
-
     agent any
-    
     environment {
         DOCKER_IMAGE = "adasgupt86/jenkins-demo"
         TAG1 = "v1"

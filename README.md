@@ -61,7 +61,7 @@ Email Notification
 ### 2. 🌍 Environment Setup
 
 * Defined required environment variables in Jenkins pipeline
-* Managed credentials securely (DockerHub, SonarQube)
+* Managed credentials securely (Github, DockerHub, SonarQube)
 
 ---
 
@@ -90,7 +90,7 @@ Email Notification
 * Pipeline proceeds only if:
 
   * Code meets defined quality standards
-* Prevents bad code from moving forward
+  * Prevents bad code from moving forward
 
 ---
 
@@ -195,7 +195,7 @@ ngrok http 8080
 
 ## ❗ Key Decisions
 
-* ❌ Did NOT use Jenkinsfile (already implemented in previous project)
+* ❌ Did NOT use Jenkinsfile (already implemented in previous project in same repo)
 * ✅ Used **Scripted Pipeline (shared bellow) directly in Jenkins UI**
 * ✅ Added **Manual Approval** for controlled deployment
 * ✅ Enforced **Quality Gate before build**

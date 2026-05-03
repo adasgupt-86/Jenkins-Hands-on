@@ -1,8 +1,12 @@
-**Project-1:**
-1. Scripted Pipeline from Jenkinsfile using "Pipeline script from SCM" feature in Jenkins
-2. Tested with Cron job (Build periodically)
-3. Only for connectivity & cron job testing purposes.
+
+## 🚀 Project 1: Jenkins Scripted Pipeline (SCM-Based)
+
+- Built CI pipeline using **Jenkinsfile** integrated via SCM
+- Implemented robust error handling with **try-catch** and **catchError**
+- Automated execution using **cron-based scheduling**
+
 **=======================================================================================**
+
 
 ## Project 2: Jenkins CI/CD Pipeline (Scripted) – End-to-End Implementation
 

@@ -361,9 +361,7 @@ pipeline {
         }
     }
 
-**Jenkins Pipeline Output**
-
-<img width="1679" height="946" alt="image" src="https://github.com/user-attachments/assets/d6ad1e4e-f264-40ca-8525-d01a42037ff5" />
+<img width="3358" height="1892" alt="image" src="https://github.com/user-attachments/assets/d684533b-be29-4d91-821a-143cd2e9b0d7" />
 
 
 

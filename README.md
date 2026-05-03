@@ -225,9 +225,10 @@ This project successfully demonstrates a **robust CI/CD pipeline** with:
 -----------------------------------------------------------------------
 
 
-
 pipeline {
+
     agent any
+    
     environment {
         DOCKER_IMAGE = "adasgupt86/jenkins-demo"
         TAG1 = "v1"
@@ -235,9 +236,9 @@ pipeline {
         DOCKER_LOGIN = credentials ('dockerhub-cred')
         SONARQUBE_LOGIN = credentials ('sonar')
     }
-
+    
     stages {
-        
+    
         stage ('Git-checkout') {
             steps {
                 git branch: 'main',
@@ -267,7 +268,7 @@ pipeline {
         stage ('Quality Gate') {
             steps {
                 timeout (time:5, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: false
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }

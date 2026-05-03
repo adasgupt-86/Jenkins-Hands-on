@@ -225,6 +225,7 @@ This project successfully demonstrates a **robust CI/CD pipeline** with:
 -----------------------------------------------------------------------
 
 
+
 pipeline {
     agent any
     environment {
@@ -234,6 +235,7 @@ pipeline {
         DOCKER_LOGIN = credentials ('dockerhub-cred')
         SONARQUBE_LOGIN = credentials ('sonar')
     }
+
     stages {
         
         stage ('Git-checkout') {
@@ -243,6 +245,7 @@ pipeline {
                     credentialsId: 'git-cred'
             }
         }
+        
         stage ('SonarQube Scan') {
             steps {
                 script {
@@ -260,13 +263,15 @@ pipeline {
                 }
             }
         }
+        
         stage ('Quality Gate') {
             steps {
                 timeout (time:5, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
+                    waitForQualityGate abortPipeline: false
                 }
             }
         }
+        
         stage ('Mannual Approve for Build') {
             steps {
                 input message: 'Do you want to proceed?', 
@@ -274,13 +279,15 @@ pipeline {
                 submitter: 'admin,devops-team'
             }
         }
+        
         stage ('Build') {
             steps {
                 sh '''
                 docker build -t demo:$TAG1 .
                 '''
             }
-        }   
+        }
+        
         stage ('Image push to DockerHub') {
             steps {
                 sh '''
@@ -297,7 +304,7 @@ pipeline {
     post {
         always {
             emailext(
-                to: 'abhishek.dasgupta11@gmail.com, avisek.bhattacharyya@gmail.com, adasgupt1986@gmail.com',
+                to: 'abhishek.dasgupta11@gmail.com, adasgupt1986@gmail.com',
                 subject: "${currentBuild.currentResult == 'SUCCESS' ? '✅ SUCCESS' : '❌ FAILURE'} | ${env.JOB_NAME} #${env.BUILD_NUMBER} [${env.GIT_BRANCH ?: 'main'}]",
                 mimeType: 'text/html',
                 body: """

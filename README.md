@@ -1,9 +1,9 @@
 
-## 🚀 Project 1: Jenkins Scripted Pipeline (SCM-Based)
+## Project 1: Jenkins Scripted Pipeline (SCM-Based)
 
-- Built CI pipeline using **Jenkinsfile** integrated via SCM
+- Built CI pipeline using **Jenkinsfile** integrated via SCM (Github)
 - Implemented robust error handling with **try-catch** and **catchError**
-- Automated execution using **cron-based scheduling**
+- Automated execution using **cron-based scheduling** and GitHub-webhook as well
 
 **=======================================================================================**
 
